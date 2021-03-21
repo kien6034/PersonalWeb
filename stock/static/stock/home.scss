@@ -1,0 +1,144 @@
+body{
+    background-color: rgb(189, 198, 211);
+    position: relative;
+}
+
+.nav{
+    position: fixed;
+    width: 13%;
+    height: 100vh;
+    background-color: rgb(41, 40, 40);
+    color: rgb(212, 211, 211);
+    display: flex;
+    flex-direction: column;
+    
+}
+
+.main{
+    position: absolute;
+    left: 13%;
+    top: 0px;
+    width: 87%;
+    min-height: 100vh;    
+}
+
+
+.watchlists{
+    width: 100%;
+    .title{
+        width: 100%;
+        background-color: rgb(27, 27, 27);
+        color: rgb(117, 117, 117);
+        text-transform: uppercase;
+        font-weight: 600;
+        padding: 8px;
+        font-size: 90%;
+        
+    }
+    .lists{
+        display: flex;
+        flex-direction: column;
+        a{
+            padding: 5px 5px 5px 20px;
+            border-bottom: 1px solid rgb(78, 78, 78);
+        }
+        a:hover{
+            background-color: #555;
+            color: white;
+        }
+    }
+    .lists a:nth-child(odd){
+        background-color: rgb(45, 45,45);
+    }
+}
+
+
+//content
+.watchlist{
+    
+    min-height: 75vh;
+    background-color: white;
+    margin: 5% 10% 5% 10%;
+    border-radius: 10px;
+    box-shadow: 0 8px 16px 0 rgba(0,0,0,0.2);
+    .name{
+        font-size: 200%;
+        text-align: center;
+        padding: 10px;
+    }
+    .items{
+        .adding-row{
+            background-color: rgb(255, 255, 255) !important;
+            margin-top: 10px !important;
+            border: 1px solid white !important;
+            box-shadow: 0 0 2px grey;
+            .stock-name{
+                border: 1px solid grey;
+                border-radius: 3px;
+            }
+        }
+        .stock-data{
+            display: flex;
+            align-items: center;
+            padding: 8px 20px 8px 8px;
+            .stock-code{
+                font-weight: 700;
+                cursor: pointer;
+            }
+
+            .stock-name{
+                flex: 1;
+                margin-left: 20px;
+                margin-right: 20px;
+                padding: 5px;
+            }
+            .stock-buy{
+               
+                margin-right: 20px;
+                background-color: rgb(92, 190, 92);
+            }
+            .stock-sell{
+                background-color: rgb(202, 72, 72);   
+            }
+
+            .stock-code:hover{
+                background-color: rgb(188, 189, 179);
+            }
+
+        }
+    }
+    .items .stock-data:nth-child(odd){
+        background-color: rgb(233, 233, 233);
+    }
+
+    .wlAdd{
+        display: flex;
+        padding: 20px 20px 10px 10px;
+        button{
+            margin-right: 10px;
+        }
+    }
+}
+
+
+
+
+a{
+    text-decoration: none !important;
+    color: inherit;
+}
+
+.hidden{
+    display: none !important;
+}
+
+
+.info-box{
+    width: 50px;
+    border: 1px solid grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 3px;
+    padding: 4px;
+}

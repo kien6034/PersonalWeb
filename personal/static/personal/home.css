@@ -1,0 +1,709 @@
+.nav {
+  width: 180px;
+  height: 100vh;
+  -webkit-box-shadow: 2px 2px 2px  grey;
+          box-shadow: 2px 2px 2px  grey;
+  background-color: black;
+  position: fixed;
+  -webkit-box-shadow: 0 0 2px #444343;
+          box-shadow: 0 0 2px #444343;
+  color: #aaa;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav .top {
+  width: 100%;
+}
+
+.nav .top .utils-bar {
+  height: 50px;
+  background-color: #492005;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  -webkit-box-shadow: 0 0 1px 1px #252424;
+          box-shadow: 0 0 1px 1px #252424;
+}
+
+.nav .top .utils-bar .to-admin {
+  color: #e7e7e7;
+  z-index: 3;
+  bottom: 0;
+  left: 0;
+}
+
+.nav .top .utils-bar .to-admin:hover {
+  position: relative;
+  top: 1px;
+  right: 1px;
+  font-size: 105%;
+}
+
+.nav .top .task {
+  padding: 0 10px;
+  margin-top: 20px;
+  width: 100%;
+}
+
+.nav .top .task .grouptaskstitle {
+  text-transform: uppercase;
+  font-size: 80%;
+  font-weight: 600;
+  color: #a09f9f;
+  padding-bottom: 10px;
+  padding-left: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.nav .top .task .grouptaskstitle .icon {
+  margin-left: 10px;
+  cursor: pointer;
+  font-size: 120%;
+  color: #999;
+}
+
+.nav .top .task .grouptaskstitle .icon:hover {
+  font-size: 125%;
+}
+
+.nav .top .task #group-task-input {
+  padding: 0 5px 10px 5px;
+}
+
+.nav .top .task #group-task-input input {
+  height: 30px;
+}
+
+.nav .top .task .grouptasks .group {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: #2f2e2e;
+  width: 96%;
+  height: 30px;
+  margin: 5px 2% 5px 2%;
+  border-radius: 5px;
+  cursor: pointer;
+}
+
+.nav .top .task .grouptasks .group .icon {
+  padding-left: 10px;
+  width: 30%;
+  height: 100%;
+}
+
+.nav .top .task .grouptasks .group .icon img {
+  width: 50%;
+  height: 50%;
+}
+
+.nav .top .task .grouptasks .group .name {
+  height: 100%;
+  width: 80%;
+}
+
+.nav .top .task .grouptasks .group:hover {
+  position: relative;
+  top: 1px;
+  left: 1px;
+}
+
+.nav .bottom {
+  width: 100%;
+}
+
+.nav .bottom .finance {
+  height: 50px;
+  width: 100%;
+  background-color: #112233;
+  border-radius: 5px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  cursor: pointer;
+}
+
+.nav .bottom .finance .avail_money {
+  color: #c3c3c3;
+  font-size: 130%;
+  font-weight: 600;
+}
+
+body {
+  width: 100%;
+}
+
+.main {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main .fakenav {
+  width: 180px;
+  height: 100vh;
+}
+
+.main .mytask {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.main .mytask .myWeek {
+  width: 50%;
+  height: 100%;
+  background-color: #12181f;
+}
+
+.main .mytask .myDay {
+  width: 50%;
+  background-color: #0f161d;
+}
+
+.myWeek .weekPeriod {
+  height: 50px;
+  width: 100%;
+  background-color: black;
+  color: #d8d7d7;
+  font-weight: 600;
+  -webkit-box-shadow: 1px 1px #222121;
+          box-shadow: 1px 1px #222121;
+  text-align: center;
+  padding: 10px;
+  font-size: 150%;
+}
+
+.myWeek .weekReview {
+  padding-left: 15px;
+}
+
+.myWeek .weekReview .title {
+  margin: 10px;
+  text-align: center;
+  font-size: 150%;
+}
+
+.myWeek .weekReview .info {
+  padding-left: 5px;
+  margin-top: 20px;
+  width: 100%;
+  height: 80px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  overflow: hidden;
+}
+
+.myWeek .weekReview .info .weekWeight {
+  border-radius: 5px;
+  overflow: hidden;
+  width: 13%;
+  height: 97%;
+  background-color: #dbd9d9;
+  margin-right: 5px;
+  position: relative;
+  -webkit-box-shadow: 2px 2px #a5a5a5;
+          box-shadow: 2px 2px #a5a5a5;
+}
+
+.myWeek .weekReview .info .weekWeight .week_finished_weight {
+  top: 0;
+  height: 50%;
+  width: 100%;
+  background-color: #0c3750;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.myWeek .weekReview .info .weekWeight .week_finished_weight .text {
+  font-size: 130%;
+  font-weight: 600;
+  color: #b3aeae;
+}
+
+.myWeek .weekReview .info .weekWeight .week_total_weight {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.myWeek .weekReview .info .weekWeight .week_total_weight .text {
+  font-size: 140%;
+  font-weight: 700;
+}
+
+.myWeek .wTable {
+  padding: 20px 20px 10px 10px;
+}
+
+.myWeek .wTable .weekTable {
+  padding: 10px 10px 5px 10px;
+}
+
+.myWeek .wTable .weekCompletedTable {
+  margin-top: 20px;
+  padding: 10px 10px 5px 10px;
+  border-radius: 10px;
+}
+
+.myDay {
+  background-color: #0f161d;
+  width: 100%;
+  position: relative;
+}
+
+.myDay .weekDay {
+  height: 50px;
+  width: 100%;
+  background-color: black;
+  color: #e2e2e2;
+  -webkit-box-shadow: 0 0 2px #3b3b3b;
+          box-shadow: 0 0 2px #3b3b3b;
+  text-align: center;
+  padding: 10px;
+  font-size: 150%;
+  font-weight: 600;
+}
+
+.myDay .blockquote-wrapper {
+  position: relative;
+  width: 100%;
+}
+
+.myDay .dayTasks {
+  padding: 10px 20px 10px 20px;
+  width: 100%;
+}
+
+.myDay .dayTasks .dayTable {
+  margin: 0px 20px 10px 10px;
+}
+
+.myDay .dayTasks .dayCompletedTable {
+  margin: 20px 20px 10px 10px;
+}
+
+.addTask {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  width: 100%;
+  padding-top: 20px;
+  padding-left: 10px;
+  padding-right: 20px;
+}
+
+.addTask .inputAddTask {
+  margin-right: 10px;
+}
+
+.addTask input {
+  background-color: #e9e3e3;
+}
+
+.weekAddTask {
+  padding-right: 10px;
+}
+
+.weekAddTask .inputAddTask {
+  margin-right: 15px;
+}
+
+.taskRow {
+  width: 100%;
+  margin-bottom: 10px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-animation-name: disappear;
+          animation-name: disappear;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.taskRow .left {
+  background-color: #ebe7e7;
+  -webkit-box-shadow: 0 0 1px 1px rgba(196, 217, 221, 0.5);
+          box-shadow: 0 0 1px 1px rgba(196, 217, 221, 0.5);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 8px 10px 8px 10px;
+  border-radius: 5px;
+  color: #2b2a2a;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-right: 20px;
+}
+
+.taskRow .left input {
+  margin-right: 10px;
+}
+
+.taskRow .weight {
+  min-width: 50px;
+  border: 1px solid #8f8e8e;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  padding: 8px 10px 8px 10px;
+  border-radius: 5px;
+  color: #ece7e7;
+  background: #a39339;
+  cursor: pointer;
+}
+
+.finishedTask {
+  width: 100%;
+}
+
+.finishedTask .left {
+  background: #202020 !important;
+  padding: 2px 5px 2px 5px !important;
+  -webkit-box-shadow: 0 0 1px grey;
+          box-shadow: 0 0 1px grey;
+  color: #a7a5a5 !important;
+}
+
+.finishedTask .right {
+  min-width: 50px;
+}
+
+.taskRow:nth-child(odd) .left {
+  background: #d1d1d1;
+}
+
+.dayofWeek, .currentDay {
+  margin: 5px;
+  width: 10%;
+  height: 85%;
+  border-radius: 5px;
+  -webkit-box-shadow: 0 0 2px grey;
+          box-shadow: 0 0 2px grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.dayofWeek .text, .currentDay .text {
+  font-weight: 500;
+  color: #adacac;
+  font-size: 80%;
+}
+
+.dayofWeek .score, .currentDay .score {
+  color: #ebe9e9;
+  font-size: 110%;
+  font-weight: 600;
+}
+
+.dayofWeek {
+  cursor: pointer;
+}
+
+.criticalTask {
+  background: #af2525 !important;
+}
+
+.mediumTask {
+  background: #95951e !important;
+}
+
+.normalTask {
+  background: #239223 !important;
+}
+
+.goodDay {
+  background-color: #156215;
+}
+
+.mediumDay {
+  background-color: #a8a826;
+}
+
+.badDay {
+  background-color: #b63232;
+}
+
+.currentDay {
+  background-color: #e0e0e0;
+  position: relative;
+  overflow: hidden;
+}
+
+.currentDay .total_finished_weight {
+  position: absolute;
+  top: 0;
+  height: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  background-color: grey;
+  width: 100%;
+}
+
+.currentDay .total_finished_weight .text {
+  color: #c8c3c3;
+  font-weight: 700;
+  font-size: 110%;
+}
+
+.currentDay .total_weight {
+  position: absolute;
+  top: 50%;
+  height: 50%;
+  width: 100%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.currentDay .total_weight .text {
+  color: #353434;
+  font-weight: 700;
+  font-size: 120%;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+a:hover {
+  color: inherit;
+}
+
+@-webkit-keyframes disappear {
+  0% {
+    opacity: 1;
+    margin-bottom: 10px;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    height: 0px;
+    line-height: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+    margin-bottom: 10px;
+  }
+  75% {
+    opacity: 0;
+  }
+  100% {
+    opacity: 0;
+    height: 0px;
+    line-height: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+.hideweight {
+  opacity: 0;
+  height: 30px;
+}
+
+/* center the blockquote in the page */
+.blockquote-wrapper {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 0 20px;
+  position: relative;
+  width: 100%;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  /* Blockquote main style */
+}
+
+.blockquote-wrapper .blockquote {
+  position: relative;
+  font-family: 'Barlow Condensed', sans-serif;
+  margin: 5% 3% 30px 3%;
+  -ms-flex-item-align: center;
+      -ms-grid-row-align: center;
+      align-self: center;
+}
+
+.blockquote-wrapper .blockquote h1 {
+  font-family: 'Abril Fatface', cursive;
+  position: relative;
+  /* for pseudos */
+  color: #e74848;
+  font-size: 110%;
+  font-weight: normal;
+  line-height: 1;
+  margin: 0;
+  border: 2px solid #fff;
+  border: solid 2px;
+  border-radius: 20px;
+  padding: 25px;
+}
+
+.blockquote-wrapper .blockquote h1:before {
+  content: "";
+  position: absolute;
+  width: 60px;
+  border: 6px solid #0f161d;
+  bottom: -3px;
+  left: 100px;
+  z-index: 2;
+}
+
+.blockquote-wrapper .blockquote h1:after {
+  content: "";
+  position: absolute;
+  border: 2px solid #e74848;
+  border-radius: 0 50px 0 0;
+  width: 35px;
+  height: 35px;
+  bottom: -35px;
+  left: 100px;
+  border-bottom: none;
+  border-left: none;
+  z-index: 3;
+}
+
+.blockquote-wrapper .blockquote h4 {
+  position: relative;
+  color: #ffffff;
+  font-size: 1rem;
+  font-weight: 400;
+  line-height: 1.2;
+  margin-left: 155px;
+  padding-top: 15px;
+  z-index: 1;
+  padding-left: 12px;
+}
+
+.blockquote-wrapper .qt {
+  color: #ffffff;
+}
+
+/* increase header size after 600px */
+@media all and (min-width: 600px) {
+  .blockquote h1 {
+    font-size: 3rem;
+    line-height: 1.2;
+  }
+}
+
+.canvas {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.6);
+}
+
+.hidden {
+  display: none !important;
+}
+/*# sourceMappingURL=home.css.map */

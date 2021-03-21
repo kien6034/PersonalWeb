@@ -1,0 +1,769 @@
+body {
+  min-height: 100vh;
+  background-color: #EEe;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.left {
+  width: 50%;
+  background-color: #cccccc;
+  padding: 30px 40px 50px 40px;
+}
+
+.left .year_name {
+  text-align: center;
+  font-size: 200%;
+  font-weight: 600;
+  color: #17446e;
+}
+
+.left .overview {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.left .overview div {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.left .overview div .title {
+  font-weight: 600;
+  color: #444;
+}
+
+.left .overview div .value {
+  margin-top: 15px;
+  font-size: 140%;
+  color: #363636;
+}
+
+.left .overview .stock .value {
+  padding: 0px 15px 0px 15px !important;
+}
+
+.left .overview .stock .value:focus {
+  outline: none;
+}
+
+.left .overview .crypto .value:focus {
+  outline: none;
+}
+
+.left .month-reviews .title {
+  text-align: center;
+  font-weight: 600;
+  font-size: 110%;
+  color: #275f80;
+}
+
+.left .month-reviews .months {
+  margin-top: 10px;
+}
+
+.left .month-reviews .months .header {
+  padding: 5px 20px 5px 20px;
+  background: #eeeded;
+  -webkit-box-shadow: 0 0 1px  grey;
+          box-shadow: 0 0 1px  grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.left .month-reviews .months .header .month-name {
+  width: 50px;
+  margin-right: 20px;
+}
+
+.left .month-reviews .months .header .fields {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.left .month-reviews .months .header .fields div {
+  font-size: 80%;
+  font-weight: 600;
+  color: #444;
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.left .month-reviews .months .month {
+  padding: 5px 20px 5px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.left .month-reviews .months .month .name {
+  width: 50px;
+  height: 30px;
+  border: 1px solid grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  margin-right: 20px;
+}
+
+.left .month-reviews .months .month .month-info {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.left .month-reviews .months .month .month-info div {
+  width: 25%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.left .month-reviews .months .month:nth-child(odd) {
+  background: #d8d7d7;
+}
+
+.left .month-reviews .months .month:nth-child(even) {
+  background: #c5c4c4;
+}
+
+.right {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  padding: 0 40px 30px 40px;
+}
+
+.right .title {
+  text-align: center;
+  font-size: 200%;
+  margin: 30px;
+  font-weight: 600;
+  color: #222;
+}
+
+.right .overview {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+}
+
+.right .overview .monthChart {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -ms-flex-pack: distribute;
+      justify-content: space-around;
+  width: 100%;
+}
+
+.right .overview .monthChart .value {
+  color: #e9e9e9;
+  font-weight: 600;
+}
+
+.right .overview .monthChart .earnCircle {
+  cursor: pointer;
+  background-color: #418d41;
+  border-radius: 50%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.right .overview .monthChart .spendCircle {
+  cursor: pointer;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  background-color: #c35151;
+  border-radius: 50%;
+  -webkit-box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+          box-shadow: 0 4px 8px 0 rgba(0, 0, 0, 0.5);
+}
+
+.right .addTransaction {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.right .addTransaction button {
+  margin-left: 30px;
+}
+
+.right .month-transactions {
+  margin-top: 20px;
+  margin-bottom: 50px;
+  -webkit-box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+          box-shadow: 0 1px 1px rgba(0, 0, 0, 0.2);
+  background-color: #e0e0e0;
+}
+
+.right .month-transactions .head {
+  background-color: #383838;
+  height: 40px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-shadow: 0 2px 2px grey;
+          box-shadow: 0 2px 2px grey;
+  color: #e9e9e9;
+}
+
+.right .month-transactions .transactions {
+  padding: 15px 20px 15px 20px;
+}
+
+.right .month-transactions .transactions .transaction {
+  padding: 10px;
+  height: 50px;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-animation-name: disappear;
+          animation-name: disappear;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.right .month-transactions .transactions .transaction .t-date {
+  cursor: pointer;
+  border: 1px solid grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.right .month-transactions .transactions .transaction .name {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin: 0 20px 0 20px;
+}
+
+.right .month-transactions .transactions .transaction .amount {
+  border: 1px solid grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  min-width: 40px;
+  height: 40px;
+  padding: 10px;
+  border-radius: 3px;
+}
+
+.right .month-transactions .transactions .transaction .plus {
+  background-color: #70e670;
+}
+
+.right .month-transactions .transactions .transaction .minus {
+  background-color: #dd5c5c;
+}
+
+.right .month-transactions .transaction:nth-child(odd) {
+  background-color: #f5efef;
+}
+
+.right .month-transactions .transaction:nth-child(even) {
+  background-color: #cecbcb;
+}
+
+.transfer-toggle {
+  position: fixed;
+  right: 30px;
+  bottom: 30px;
+  width: 40px;
+  height: 40px;
+  border-radius: 50%;
+  background-color: rgba(230, 192, 23, 0.8);
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 20px;
+  -webkit-box-shadow: 0 0 2px 1px grey;
+          box-shadow: 0 0 2px 1px grey;
+  cursor: pointer;
+}
+
+.transfer-toggle:hover {
+  width: 45px;
+}
+
+.transfers {
+  padding: 0 20px 20px 20px;
+}
+
+.transfers .month-transfer {
+  padding: 10px;
+  height: 50px;
+  border-radius: 3px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  background-color: grey;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-animation-name: disappear;
+          animation-name: disappear;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.transfers .month-transfer .info {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.transfers .month-transfer .info .transfer-date {
+  cursor: pointer;
+  border: 1px solid grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  width: 40px;
+  height: 40px;
+}
+
+.transfers .month-transfer .info .name {
+  margin-left: 20px;
+}
+
+.transfers .month-transfer .from-to {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.transfers .month-transfer .from-to .from {
+  margin-right: 12px;
+  cursor: pointer;
+  border: 1px solid grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 80%;
+  padding: 0 5px 0 5px;
+  min-width: 30px;
+  height: 30px;
+  background-color: #3f3d3d;
+  color: #eee;
+}
+
+.transfers .month-transfer .from-to .amount {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.transfers .month-transfer .from-to .amount .icon {
+  font-size: 140%;
+  color: #555;
+}
+
+.transfers .month-transfer .from-to .amount .value {
+  font-size: 90%;
+}
+
+.transfers .month-transfer .from-to .to {
+  margin-left: 12px;
+  cursor: pointer;
+  border: 1px solid grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  font-size: 80%;
+  padding: 0 5px 0 5px;
+  min-width: 30px;
+  height: 30px;
+  background-color: #14466e;
+  color: #eee;
+}
+
+.transfers .month-transfer:nth-child(odd) {
+  background-color: #f5efef;
+}
+
+.transfers .month-transfer:nth-child(even) {
+  background-color: #cecbcb;
+}
+
+.transfer-add-box {
+  z-index: 1;
+  position: fixed;
+  width: 600px;
+  height: 400px;
+  top: 50%;
+  left: 50%;
+  -webkit-transform: translate(-50%, -50%);
+          transform: translate(-50%, -50%);
+  background-color: white;
+  -webkit-box-shadow: 0 0 2px 1px rgba(41, 41, 41, 0.5);
+          box-shadow: 0 0 2px 1px rgba(41, 41, 41, 0.5);
+}
+
+.transfer-add-box .bar {
+  height: 40px;
+  background-color: #f7b63f;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding-left: 70px;
+}
+
+.transfer-add-box .bar .name {
+  margin-left: 20px;
+  font-weight: 600;
+  font-size: 110%;
+}
+
+.transfer-add-box .bar .quit-btn {
+  cursor: pointer;
+  color: #444555;
+  font-weight: 600;
+  font-size: 170%;
+  margin-right: 10px;
+}
+
+.transfer-add-box .bar .quit-btn:hover {
+  position: relative;
+  top: -2px;
+  left: 1px;
+  font-size: 190%;
+}
+
+.transfer-add-box .body {
+  padding: 0 100px 0 90px;
+}
+
+.transfer-add-box .body .from-to {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: justify;
+      -ms-flex-pack: justify;
+          justify-content: space-between;
+}
+
+.transfer-add-box .body .from-to .from {
+  margin: 20px 20px 20px 0;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.transfer-add-box .body .from-to .from .text {
+  font-weight: 120%;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #444;
+}
+
+.transfer-add-box .body .from-to .from .btn-group {
+  min-width: 120px;
+}
+
+.transfer-add-box .body .from-to .exchange-icon {
+  margin: 20px;
+}
+
+.transfer-add-box .body .from-to .to {
+  margin: 20px 0px 20px 20px;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.transfer-add-box .body .from-to .to .text {
+  font-weight: 120%;
+  margin-bottom: 10px;
+  font-weight: 600;
+  color: #444;
+}
+
+.transfer-add-box .body .from-to .to .btn-group {
+  min-width: 120px;
+}
+
+.transfer-add-box .body .transfer-addfield .text {
+  color: #555;
+  font-size: 90%;
+  margin-bottom: 5px;
+  margin-top: 10px;
+  font-weight: 600;
+}
+
+.transfer-add-box .body .transfer-submit-btn {
+  width: 100%;
+  margin-top: 30px;
+}
+
+.canvas {
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0, 0, 0, 0.5);
+}
+
+.my-4 {
+  width: 100%;
+}
+
+.my-5 {
+  width: 80%;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.earnBtn {
+  background-color: #20c720;
+}
+
+.earnBtn:hover {
+  background-color: #35b835;
+}
+
+.spendBtn {
+  background-color: #e63737;
+}
+
+.spendBtn:hover {
+  background-color: #d45454;
+}
+
+@-webkit-keyframes disappear {
+  0% {
+    opacity: 1;
+    height: 100%;
+    line-height: 100%;
+    padding: 10px;
+    height: 50px;
+    border-radius: 3px;
+  }
+  75% {
+    opacity: 0;
+    height: 100%;
+    line-height: 100%;
+    padding: 10px;
+    height: 50px;
+    border-radius: 3px;
+  }
+  100% {
+    opacity: 0;
+    height: 0px;
+    line-height: 0px;
+    padding: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+    height: 100%;
+    line-height: 100%;
+    padding: 10px;
+    height: 50px;
+    border-radius: 3px;
+  }
+  75% {
+    opacity: 0;
+    height: 100%;
+    line-height: 100%;
+    padding: 10px;
+    height: 50px;
+    border-radius: 3px;
+  }
+  100% {
+    opacity: 0;
+    height: 0px;
+    line-height: 0px;
+    padding: 0px;
+    margin-bottom: 0px;
+    border-radius: 0px;
+  }
+}
+/*# sourceMappingURL=finance.css.map */

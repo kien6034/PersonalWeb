@@ -1,0 +1,22 @@
+body{
+    background-color: rgb(245, 244, 177);
+}
+
+.stock_name{
+    text-align: center;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    .code{
+        border: 1px solid rgb(0, 0, 0);
+        color: rgb(20, 82, 110);
+        padding: 4px;
+        font-weight: 600;
+        font-size: 160%;
+        margin-right: 10px;
+    }
+    .name{
+        font-size: 180%;
+        color: rgb(20, 82, 110);
+    }
+}

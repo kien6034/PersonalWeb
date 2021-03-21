@@ -1,0 +1,232 @@
+body {
+  background-color: #12191f;
+}
+
+.container {
+  min-height: 100vh;
+}
+
+.container h1 {
+  text-align: center;
+  padding: 20px 0 40px 0;
+  color: #d4d3d3;
+}
+
+.box {
+  margin: 0 20% 0 20%;
+}
+
+.box .addTask {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+}
+
+.box .addTask input {
+  margin-right: 20px;
+  background-color: #c7c6c6;
+}
+
+.box .table {
+  margin-top: 30px;
+}
+
+.taskRow {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  height: 60px;
+  -webkit-animation-name: disappear;
+          animation-name: disappear;
+  -webkit-animation-duration: 1s;
+          animation-duration: 1s;
+  -webkit-animation-fill-mode: forwards;
+          animation-fill-mode: forwards;
+  -webkit-animation-play-state: paused;
+          animation-play-state: paused;
+}
+
+.taskRow .info {
+  padding: 8px 10px 8px 10px;
+  width: 100%;
+  margin-right: 20px;
+  margin-bottom: 10px;
+  -webkit-box-shadow: 0px 1px #646464;
+          box-shadow: 0px 1px #646464;
+  border-radius: 5px;
+  background-color: #f0f0f0;
+  color: #1f1d1d;
+  font-size: 110%;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+}
+
+.taskRow .info .name {
+  padding: 5px;
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+}
+
+.taskRow .info .name:focus {
+  outline: none !important;
+}
+
+.taskRow .info input {
+  margin-right: 10px;
+}
+
+.taskRow .weight {
+  margin-bottom: 10px;
+  width: 60px;
+  padding: 10px;
+  border-radius: 5px;
+  border: 1px solid #cac8c8;
+  background-color: #854b0a;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  color: #dadada;
+  font-weight: 600;
+  cursor: pointer;
+}
+
+.uf:nth-child(even) .info {
+  background: #bbbbbb;
+}
+
+.divider {
+  width: 100%;
+  padding-right: 75px;
+}
+
+.divider .line {
+  height: 5px;
+  background-color: #202020;
+  -webkit-box-shadow: 0 0 1px #c79a1f;
+          box-shadow: 0 0 1px #c79a1f;
+  border-radius: 1px;
+  margin-bottom: 20px;
+}
+
+.finished .info {
+  width: 100%;
+  padding: 0px 10px 0px 10px !important;
+  color: white;
+  -webkit-box-shadow: 0 0 1px grey;
+          box-shadow: 0 0 1px grey;
+  background-color: #3d3d3d;
+  margin-right: 75px;
+}
+
+#home {
+  text-decoration: none !important;
+  color: #cfcfcf;
+  position: fixed;
+  top: 10px;
+  left: 10px;
+}
+
+.p-weight {
+  position: fixed;
+  right: 10px;
+  top: 10px;
+  width: 60px;
+  height: 80px;
+  background-color: #8f7013;
+  color: white;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 7px;
+}
+
+.p-weight .text {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  width: 100%;
+  background-color: #534f4f;
+  height: 40px;
+  font-size: 90%;
+  color: #eee;
+}
+
+.p-weight .value {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  font-size: 120%;
+  height: 40px;
+  font-weight: 600;
+  color: #dbd9d9;
+}
+
+@-webkit-keyframes disappear {
+  0% {
+    opacity: 1;
+    height: 60px;
+    line-height: 100%;
+  }
+  75% {
+    opacity: 0;
+    height: 60px;
+  }
+  100% {
+    opacity: 0;
+    height: 0px;
+    line-height: 0px;
+    margin-bottom: 0px;
+  }
+}
+
+@keyframes disappear {
+  0% {
+    opacity: 1;
+    height: 60px;
+    line-height: 100%;
+  }
+  75% {
+    opacity: 0;
+    height: 60px;
+  }
+  100% {
+    opacity: 0;
+    height: 0px;
+    line-height: 0px;
+    margin-bottom: 0px;
+  }
+}
+/*# sourceMappingURL=task.css.map */

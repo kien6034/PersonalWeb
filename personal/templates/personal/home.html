@@ -1,0 +1,322 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Home</title>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+        <script src="https://kit.fontawesome.com/89a067fc4d.js" crossorigin="anonymous"></script>
+        {% load static %}
+        <link rel="stylesheet" type="text/css" href="{% static 'personal/home.css' %}">
+        <script src="{% static 'personal/home.js' %}"></script> 
+        <script id = "addTaskHandleBar" type = "text/x-handlebars-template">
+
+            {% verbatim %}
+                <div class="left">
+                    <input class = "checkboxWeekTask"  data-id = "{{data.id}}" type ="checkbox"/>
+                    <div class="name">
+                        {{data.name}}
+                    </div>
+                </div>
+                <div class="weight">
+                    {{data.weight}}
+                </div>
+            {% endverbatim %}
+        </script>  
+
+        <script id ="addGroupTaskHandleBar" type = "text/x-handlebars-template">
+            {% verbatim %}
+                <div class="icon">
+                    <i class="fas fa-tasks"></i>
+                </div>
+                <div class="name">
+                    {{name}}
+                </div>
+            {% endverbatim %}
+        </script>
+    </head>
+<body>
+    <div class="nav">
+        <div class="top">
+            <div class="utils-bar">
+                <a href ="/admin" class="to-admin" target="_blank">
+                    <div class="icon">
+                        <i class="fas fa-user-shield"></i>
+                    </div>
+                </a> 
+            </div>
+            
+            <div class="divider">
+                    
+            </div>
+        
+            <div class="task">
+                <div class="grouptaskstitle">
+                    Group Task
+                    <div id = "add-group-task-icon" class="icon">
+                        <i class="fas fa-plus-circle"></i>
+                    </div>
+                </div>
+                <div id="group-task-input" class="hidden">
+                    <form id ="group-task-input-form">
+                        <input class ="form-control" placeholder="New group task"/>
+                    </form>
+                </div>
+                <div id = "groupTasks" class="grouptasks">
+                    {% for group in taskGroups %}
+                    <a href ="task/{{group.id}}" class="group" target="_blank">
+                        <div class="icon">
+                            <i class="fas fa-tasks"></i>
+                        </div>
+                        <div class="name">
+                            {{group.name}}
+                        </div>
+                    </a>
+                    
+                {% endfor %}
+                </div>
+                
+            </div>
+        </div>
+        
+        
+        <div class="bottom">
+          
+            <a href = "finance" class="finance" target="_blank">
+                <div class="avail_money">
+                    {{portfolio.available_money}}
+                </div>
+                
+            </a>
+        </div>
+    </div>
+    <div class="main">
+        <div class="fakenav">
+            
+        </div>
+        <div class="mytask">
+            <div class="myWeek">
+                <div class="weekPeriod">
+                    {{week.endDate }} 
+                </div>
+                <div class="weekReview">
+                    
+                    <div class="info">
+                        <div class="weekWeight">
+                            <div id = "week_finished_weight" class="week_finished_weight">
+                                <div class="text">
+                                    {{week.total_finished_weight}}
+                                </div>
+                            </div>
+                            <div id = "week_total_weight" class="week_total_weight">
+                                <div class="text">
+                                    {{week.total_weight}}
+                                </div>
+                            </div>
+                        </div>
+                        {% for day in previousDays %}
+                       
+                            {% if day.score > 89 %}
+                            <a href ="review/day/{{day.id}}" data-id = "{{day.id}}" class="dayofWeek goodDay">
+                                <div  class="dw text">
+                                    {{day.date| date:"l" }}
+                                </div>
+                                <div class="score">
+                                    {{day.score}} %
+                                </div>
+                            </a>
+                            {% elif day.score > 69 %}
+                            <a href ="review/day/{{day.id}}" data-id = "{{day.id}}" class="dayofWeek mediumDay">
+                                <div class="dw text">
+                                    {{day.date| date:"l" }}
+                                </div>
+                                <div class="score">
+                                    {{day.score}} %
+                                </div>
+                            </a>
+                            {% else %}
+                            <a href ="review/day/{{day.id}}" data-id = "{{day.id}}" class="dayofWeek badDay">
+                                <div class="dw text">
+                                    {{day.date| date:"l" }}
+                                </div>
+                                <div class="score">
+                                    {{day.score}} %
+                                </div>
+                                
+                            </a>
+                            {% endif %}
+                        {% endfor %}
+                        <div class="currentDay">
+                            <div id = "day_finished_weight" class="total_finished_weight">
+                                <div class="text">
+                                    {{currentDate.total_finished_weight}}
+                                </div>
+                            </div>
+                            <div id = "day_total_weight" class="total_weight">
+                                <div class="text">
+                                    {{currentDate.total_weight}}
+                                </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+                <div class="weekTasks">
+                    <div class="wTable">
+                        <div id = "weekTable" class="weekTable">
+                            {% for task in weekTasks %}
+                                {% if not task.finished %}
+                                <div id = "wt-{{task.id}}" class="taskRow"> 
+                                    <div class="left">
+                                        <input class = "checkboxWeekTask"  data-id = "{{task.id}}" type ="checkbox"/>
+                                        <div class="name">
+                                            {{task.name}}
+                                        </div>
+                                    </div>
+
+                                    {% if task.weight > 9 %}
+                                    <div data-id = "{{task.id}}" data-type = "week" class="weight criticalTask">
+                                        {{task.weight}}
+                                    </div>
+                                    {% elif task.weight > 4 %}
+                                    <div data-id = "{{task.id}}"  data-type = "week" class="weight mediumTask">
+                                        {{task.weight}}
+                                    </div>
+                                    {% else %}
+                                    <div data-id = "{{task.id}}"  data-type = "week" class="weight normalTask">
+                                        {{task.weight}}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                {% endif %} 
+                            {% endfor %}
+                        </div>
+                        <div id ="weekCompletedTable" class="weekCompletedTable">
+                            {% for task in weekTasks %}
+                                {% if task.finished %}
+                                <div id = "wt-{{task.id}}" class="taskRow finishedTask"> 
+                                    <div class="left">
+                                        <input checked class = "checkboxWeekTask"  data-id = "{{task.id}}" type ="checkbox"/>
+                                        <div class="name">
+                                            {{task.name}}
+                                        </div>
+                                    </div>
+                                    {% if task.weight > 9 %}
+                                    <div data-id = "{{task.id}}" data-type = "week" class="weight criticalTask hideweight">
+                                        {{task.weight}}
+                                    </div>
+                                    {% elif task.weight > 4 %}
+                                    <div data-id = "{{task.id}}"  data-type = "week" class="weight mediumTask hideweight">
+                                        {{task.weight}}
+                                    </div>
+                                    {% else %}
+                                    <div data-id = "{{task.id}}"  data-type = "week" class="weight normalTask hideweight">
+                                        {{task.weight}}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                                {% endif %} 
+                            {% endfor %}
+                        </div>
+                        <form id ="addWeekTask" class="addTask weekAddTask">
+                            <input type="text" class="form-control inputAddTask">
+                            <button id = "buttonAddWeekTask" class="btn btn-primary">Add</button>
+                        </form>
+                    </div>
+
+                    
+                </div>
+            </div>
+            <div class="myDay">
+                <div class="weekDay"> {{weekDay}}</div>
+                <div class="blockquote-wrapper">
+                    <div class="blockquote">
+                      <h1>
+                       {{currentDate.quote.name|safe}}
+                       </h1>
+                      <h4>&mdash; {{currentDate.quote.author}}</h4>
+                    </div>
+                </div>
+                
+                <div class="dayTasks">
+                    <div id = "dayTable" class="dayTable">
+                        {% for task in dayTasks %}
+                                {% if not task.finished %}
+                                
+                                
+                                <div id = "dt-{{task.id}}" class="taskRow"> 
+                                    <div class="left">
+                                        <input class = "checkboxDayTask"  data-id = "{{task.id}}" type ="checkbox"/>
+                                        <div class="name">
+                                            {{task.name}}
+                                        </div>
+                                        
+                                    </div>
+                                    {% if task.weight > 9 %}
+                                    <div data-id = "{{task.id}}" data-type = "day" class="weight criticalTask">
+                                        {{task.weight}}
+                                    </div>
+                                    {% elif task.weight > 4 %}
+                                    <div data-id = "{{task.id}}" data-type = "day" class="weight mediumTask">
+                                        {{task.weight}}
+                                    </div>
+                                    {% else %}
+                                    <div data-id = "{{task.id}}" data-type = "day" class="weight normalTask">
+                                        {{task.weight}}
+                                    </div>
+                                    {% endif %}
+                                </div>
+                            
+                                {% endif %}
+                                
+                        {% endfor %}
+                    </div>
+                    
+                    <div id = "dayCompletedTable" class="dayCompletedTable">
+                        {% for task in dayTasks %}
+                        {% if  task.finished %}
+                        <div id = "dt-{{task.id}}" class="taskRow finishedTask"> 
+                            <div class="left">
+                                <input class = "checkboxDayTask"  data-id = "{{task.id}}" type ="checkbox" checked/>
+                                <div class="name">
+                                    {{task.name}}
+                                </div>
+                            </div>
+
+                            {% if task.weight > 9 %}
+                            <div data-id = "{{task.id}}" data-type = "day" class="weight criticalTask hideweight">
+                                {{task.weight}}
+                            </div>
+                            {% elif task.weight > 4 %}
+                            <div data-id = "{{task.id}}" data-type = "day" class="weight mediumTask hideweight">
+                                {{task.weight}}
+                            </div>
+                            {% else %}
+                            <div data-id = "{{task.id}}" data-type = "day" class="weight normalTask hideweight">
+                                {{task.weight}}
+                            </div>
+                            {% endif %}
+                        </div>
+                        {% endif %}
+                        {% endfor %}
+                    </div>
+                    <form id ="addDayTask" class="addTask dayAddTask">
+                        <input type="text" class="form-control inputAddTask">
+                        <button id = "buttonAddDayTask" class="btn btn-primary">Add</button>
+                    </form>
+                </div>
+             
+
+               
+            </div>
+        </div>
+    </div>
+
+    <!-- separate block -->
+    <audio id="audio" src="{% static 'personal/audio/ting_short.mp3' %}"></audio>
+
+    <div class="canvas hidden"></div>
+
+    
+
+
+</body>
+</html>

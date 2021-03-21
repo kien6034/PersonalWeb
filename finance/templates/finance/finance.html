@@ -1,0 +1,345 @@
+<!DOCTYPE html>
+<html lang="en">
+    <head>
+        <title>Home</title>
+        <script src="https://kit.fontawesome.com/89a067fc4d.js" crossorigin="anonymous"></script>
+        <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+    
+        {% load static %}
+        {% load humanize %}
+        <link rel="stylesheet" type="text/css" href="{% static 'finance/finance.css' %}">
+        <script src="{% static 'finance/finance.js' %}"></script> 
+        <script src="https://code.jquery.com/jquery-3.3.1.slim.min.js" integrity="sha384-q8i/X+965DzO0rT7abK41JStQIAqVgRVzpbzo5smXKp4YfRvH+8abtTE1Pi6jizo" crossorigin="anonymous"></script>
+        <script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js" integrity="sha384-UO2eT0CpHqdSJQ6hJty5KVphtPhzWj9WO1clHTMGa3JDZwrnQq4sF86dIHNDz0W1" crossorigin="anonymous"></script>
+        <script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js" integrity="sha384-JjSmVgyd0p3pXB1rRibZUAYoIIy6OrQ6VrjIEaFf/nJGzIxFDsf4x0xIM+B07jRM" crossorigin="anonymous"></script>
+        <script id = "addTransactionHandlebar" type = "text/x-handlebars-template">
+            {% verbatim %}
+                <div data-id = "{{tId}}" class="t-date" data-value = "{{amount}}" id = "t-{{tId}}">
+                    {{date}}
+                </div>
+
+                <div class="name">
+                    {{name}}
+                </div>
+
+                <div class="amount">
+                    {{amount}}
+                </div>
+                
+            {% endverbatim %}
+        </script>  
+
+        <script id = "addTransferHandleBar" type = "text/x-handlebars-template">
+            {% verbatim %}
+            <div class="info">
+                <div id = "tfdate-{{tId}}" class="transfer-date" data-value ="{{amount}}" data-id = "{{tId}}">
+                    {{date}}
+                </div>
+                <div class="name">
+                    {{name}}
+                </div>
+            </div>
+
+            <div class="from-to">
+                <div class="from">
+                    {{tfrom}}
+                </div>
+                <div class="amount">
+                  
+                    <div class="value">
+                        {{amount}}
+                    </div>
+                    <div class="icon">
+                        <i class="fas fa-long-arrow-alt-right"></i>
+                    </div>
+                </div>
+                
+                <div class="to">
+                    {{tto}}
+                </div>
+                
+            </div>
+                
+            {% endverbatim %}
+        </script>  
+
+    </head>
+<body>
+    <div id="data-transfer" data-id = "{{month.id}}"></div>
+    <div class="left">
+        <div class="year_name">
+            {{year.name}}
+        </div>
+        <hr class = "my-4">
+
+        <div class="overview">
+            <div class="stock">
+                <div class="title">
+                    STOCK
+                </div>
+                <div id = "ystock" data-value="{{year.stock}}" contenteditable="true" class="value">
+                    {{year.stock|intcomma}}
+                </div>
+            </div>
+            <div class="crypto">
+                <div class="title">
+                    CRYPTO
+                </div>
+                <div id = "ycrypto" data-value="{{year.crypto}}" contenteditable="true" class="value">
+                    {{year.crypto|intcomma}}
+                </div>
+            </div>
+            <div class="cash">
+                <div class="title">
+                    CASH
+                </div>
+                <div id = "ycash" class="value" data-value = "{{year.cash}}">
+                    {{year.cash|intcomma}}
+                </div>
+            </div>
+
+            <div class="total_earn">
+                <div class="title">
+                    EARN
+                </div>
+                <div id = "yearn" class="value" data-value = "{{year.total_earn}}">
+                    {{year.total_earn|intcomma}}
+                </div>
+            </div>
+
+            <div  class="total_spend">
+                <div class="title">
+                    SPEND
+                </div>
+                <div id = "yspend" class="value" data-value = "{{year.total_spend}}">
+                    {{year.total_spend|intcomma}}
+                </div>
+            </div>
+        </div>
+        <hr class = "my-4">
+
+        <div class="month-reviews">
+            <div class="title">
+                Months Review
+            </div>
+
+            <div class="months">
+                <div class="header">
+                    <div class="month-name">
+
+                    </div>
+                    <div class="fields">
+                        <div class="stock">
+                            STOCK
+                        </div>
+                        <div class="crypto">
+                            CRYPTO
+                        </div>
+                        <div class="cash">
+                            CASH
+                        </div>
+                        <div class="earn">
+                            EARN
+                        </div>
+                        <div class="spend">
+                            SPEND
+                        </div>
+                        
+                    </div>
+                </div>
+                {% for month in year.month.all %}
+                <div class="month">
+                    <div class="name">
+                        {{month.name}}
+                    </div>
+                    <div class="month-info">
+                        <div id = "mstock-{{month.id}}" class="stock">                          
+                                {{month.stock|intcomma}}                           
+                        </div>
+                        <div id = "mcrypto-{{month.id}}" class="crypto">
+                            {{month.crypto|intcomma}}
+                        </div>
+                        <div id = "mcash-{{month.id}}" class="cash" data-value="{{month.cash}}">                                            
+                                {{month.cash|intcomma}}                         
+                        </div>
+                        <div id = "mearn-{{month.id}}" class="earn">             
+                                {{month.total_earn|intcomma}}
+                        </div>
+                        <div id = "mspend-{{month.id}}" class="spend">
+                                {{month.total_spend|intcomma}}
+                            
+                        </div>
+                    </div>
+                </div>
+                   
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+    <div class="right">
+        <div class="title">
+            {{month.name}}
+        </div>
+        
+        <div class="overview">
+            <div id = "monthChart" class="monthChart">
+                <div data-value = "{{month.total_earn}}" id = "earnCircle" class="earnCircle">
+                    <div class="value">
+                        {{month.total_earn|intcomma}}
+                    </div>
+                   
+                </div>
+                
+                <div data-value = "{{month.total_spend}}" id = "spendCircle" class="spendCircle">
+                    <div class="value">
+                        {{month.total_spend|intcomma}}
+                    </div>
+                </div>
+            </div>
+        </div>
+        <hr class ="my-5">
+        <div id = "add_transaction" class="addTransaction hidden">
+            <input type="text" class = "form-control">
+            <button class = "btn btn-primary">Add</button>
+        </div>
+
+        <div class="month-transactions">
+            <div class="head">
+                Month Transaction
+            </div>
+            <div id = "transactions" class="transactions">
+                {% for t in month.transaction.all %}
+                <div id = "ts-{{t.id}}" class="transaction" data-action = {{t.action}}>
+                    <div data-id = "{{t.id}}" class="t-date" data-value = "{{t.amount}}">
+                        {{t.date|date:"j"}}
+                    </div>
+
+                    <div class="name">
+                        {{t.name}}
+                    </div>
+        
+                    {% if t.action == 'Plus' %}
+                    <div class="amount plus">
+                        {{t.amount|intcomma}}
+                    </div>
+                    {% else %}
+                    <div class="amount minus">
+                        {{t.amount|intcomma}}
+                    </div>
+                    {% endif %}
+                    
+                </div>
+                {% endfor %}
+            </div>
+
+            <div id = "transfers" class="transfers">
+                {% for t in month.transfer.all %}
+                <div id = "tf-{{t.id}}" data-tfrom = "{{t.tfrom}}" data-tto = "{{t.tto}}" class="month-transfer">
+                    <div class="info">
+                        <div class="transfer-date" data-value ="{{t.amount}}" data-id = "{{t.id}}">
+                            {{t.date|date:"j"}}
+                        </div>
+                        <div class="name">
+                            {{t.name}}
+                        </div>
+                    </div>
+
+                    <div class="from-to">
+                        <div class="from">
+                            {{t.tfrom}}
+                        </div>
+                        <div class="amount">
+                          
+                            <div class="value">
+                                {{t.amount|intcomma}}
+                            </div>
+                            <div class="icon">
+                                <i class="fas fa-long-arrow-alt-right"></i>
+                            </div>
+                        </div>
+                        
+                        <div class="to">
+                            {{t.tto}}
+                        </div>
+                        
+                    </div>
+                    
+                </div>
+                {% endfor %}
+            </div>
+            
+        </div>
+        
+        
+    </div>
+    <div id = "transfer-toggle" class="transfer-toggle">
+        
+        <i class="fas fa-exchange-alt"></i>
+    </div>
+
+    <div id = "transfer-add-box" class="transfer-add-box hidden">
+        <div class="bar">
+            <div class="name">
+                Money transfer
+            </div>
+            <div class="quit-btn">
+                &times
+            </div>
+        </div>
+        <form class="body">
+            <div class="from-to">
+                <div class="from">
+                    <div class="text">
+                        From
+                    </div>
+                    <div class="selection-group btn-group">
+                        <button id = "transfer-from-button" type="button" class="btn btn-secondary dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Cash
+                        </button>
+                        <div class="dropdown-menu">
+                          <a class="dropdown-item" href="#" data-value="ST">Stock</a>
+                          <a class="dropdown-item" href="#" data-value="CR">Crypto</a>
+                          <div class="dropdown-divider"></div>
+                          <a class="dropdown-item" href="#" data-value="VO">Avail </a>
+                        </div>
+                      </div>
+                </div>
+                <div class="exchange-icon">
+                    <i class="fas fa-exchange-alt"></i>
+                </div>
+                <div class="to">
+                    <div class="text">
+                        To
+                    </div>
+                    <div class="selection-group btn-group">
+                        <button id = "transfer-to-button" type="button" class="btn btn-dark dropdown-toggle" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+                          Stock
+                        </button>
+                        <div class="dropdown-menu">
+                            <a class="dropdown-item" href="#">Cash</a>
+                            <a class="dropdown-item" href="#">Crypto</a>
+                            <div class="dropdown-divider"></div>
+                            <a class="dropdown-item" href="#">Avail </a>
+                          </div>
+                      </div>
+                </div>
+            </div>
+            <div class="transfer-addfield name">
+                <div class="text">
+                    Name
+                </div>
+                <input type="text" id = "transfer-name-input" class="form-control inputAddTask" required>
+            </div>
+            <div class="transfer-addfield amount">
+                <div class="text">
+                    Amount
+                </div>
+                <input type="number" id = "transfer-amount-input" class="form-control inputAddTask" required>
+            </div>
+            <button type="submit" class="transfer-submit-btn btn btn-primary">Submit</button>
+        </form>
+    </div>
+    
+    <div id = "canvas" class="canvas hidden"></div>
+</body>

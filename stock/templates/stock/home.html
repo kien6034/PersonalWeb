@@ -1,0 +1,74 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <title>Information</title>
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css" integrity="sha384-ggOyR0iXCbMQv3Xipma34MD+dH/1fQ784/j6cY/iJTQUOhcWr7x9JvoRxT2MZw1T" crossorigin="anonymous">
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/handlebars.js/4.7.6/handlebars.min.js"></script>
+    {% load static %}
+    {% load humanize %}
+
+    <link rel="stylesheet" type="text/css" href="{% static 'stock/home.css' %}">
+    <script src="{% static 'stock/home.js' %}"></script>   
+    <script id = "stockWatchListHandlebar" type = "text/x-handlebars-template">
+            
+        {% verbatim %}
+           
+        {% endverbatim %}
+    </script>  
+
+</head>
+<body>
+    <div class="nav">
+        <div class="search">
+            Search
+        </div>
+
+        <div class="watchlists">
+            <div class="title">
+                Watch Lists
+            </div>
+            <div class="lists">
+                {% for list in watchlists %}
+                <a href="/stock/home/watchlist/{{list.id}}">{{list.name}}</a>
+                {% endfor %}
+            </div>
+        </div>
+    </div>
+
+    <div class="main">
+        {% if selection == "watchlist" %}
+            <div class="watchlist">
+                <div class="name">
+                    {{watchlist.name}}
+                </div>
+                <div  data-id = "{{watchlist.id}}" id = "wlItems" class="items">
+                    {% for stock in watchlist.stocks.all %}
+                        <div class="stock-data">
+                            <a href ="/stock/info/{{stock.code}}" class="stock-code info-box">
+                                {{stock.code}}
+                            </a>
+                            <div class="stock-name">
+                                {{stock.name}}
+                            </div>
+                            <div contenteditable="true" class="stock-buy info-box">
+                                {{stock.buy}}
+                            </div>
+                            <div contenteditable="true" class="stock-sell info-box">
+                                {{stock.sell}}
+                            </div>
+                        </div>
+                       
+                    {% endfor %}
+                </div>
+
+                <div class="wlAdd">
+                    <button id = "wlAddBtn" class="btn btn-primary">Add</button>
+                    <input type="text" id = "wlInputField" class="form-control inputAddTask">            
+                </div>
+            </div>
+        {% endif %}
+
+        <div id="data-transfer" data-selection = "{{selection}}"></div>
+    </div>
+</body>
+</html>

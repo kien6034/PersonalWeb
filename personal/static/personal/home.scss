@@ -1,0 +1,589 @@
+$day-theme-background: rgb(15, 22, 29);
+
+$week-theme-background: rgb(18, 24, 31);
+
+$nav-background-color: black;
+
+$nav-task-background-color: rgb(47, 46, 46);
+
+.nav{
+    
+    width: 180px;
+    height: 100vh;
+    box-shadow: 2px 2px 2px  grey;
+    background-color: $nav-background-color;
+    position: fixed;
+    box-shadow: 0 0 2px rgb(68, 67, 67);
+    color: #aaa;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-between;
+    align-items: center;
+    .top{
+        width: 100%;
+        .utils-bar{
+            height: 50px;
+            background-color: rgb(73, 32, 5);
+            width: 100%;
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            box-shadow: 0 0 1px 1px rgb(37, 36, 36);
+            .to-admin{
+                color: rgb(231, 231, 231);
+                z-index: 3;
+                bottom: 0;
+                left: 0;
+            }
+            .to-admin:hover{
+                position: relative;
+                top: 1px;
+                right: 1px;
+                font-size: 105%;
+            }
+        }
+      
+        .task{
+            padding: 0 10px;
+            margin-top: 20px;
+            width: 100%;
+            .grouptaskstitle{
+                text-transform: uppercase;
+                font-size: 80%;
+                font-weight: 600;
+                color: rgb(160, 159, 159);
+                padding-bottom: 10px;
+                padding-left: 5px;
+                display: flex;
+                align-items: center;
+                
+                .icon{
+                    margin-left: 10px;
+                    cursor: pointer;
+                    font-size: 120%;
+                    color: #999;
+                }
+                .icon:hover{
+                    font-size: 125%;
+                }
+                
+            }
+            #group-task-input{
+                padding:0 5px 10px 5px;
+                input{
+                    height: 30px;
+                }
+            }
+            .grouptasks{
+                .group{
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    background-color: $nav-task-background-color;
+                    width: 96%;
+                    height: 30px;
+                    margin: 5px 2% 5px 2%;
+                    border-radius: 5px;
+                    cursor: pointer;
+                    .icon{
+                        padding-left: 10px;
+                        width: 30%;
+                        height: 100%;
+                        img{
+                            width: 50%;
+                            height: 50%;
+                        }
+                    }
+                    .name{
+                        height: 100%;
+                        width: 80%;
+                    }
+                }  
+                .group:hover{
+                    position: relative;
+                    top: 1px;
+                    left: 1px;
+                } 
+            }
+        }
+
+       
+    }
+    .bottom{
+        width: 100%;
+        .finance{
+            height: 50px;
+            width: 100%;
+            background-color: rgb(17, 34, 51);
+            border-radius: 5px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            cursor: pointer;
+            .avail_money{
+                color: rgb(195, 195, 195);
+                font-size: 130%;
+                font-weight:600;
+            }
+            
+        }
+        
+    }
+}
+
+body{
+    width: 100%;
+}
+.main{
+    display: flex;
+   
+    .fakenav{
+        width: 180px;
+        height: 100vh;
+        
+    }
+    
+    .mytask{
+        flex: 1;
+        min-height: 100vh;
+        
+        display: flex;
+        .myWeek{
+            width: 50%;
+            height: 100%;
+            background-color: $week-theme-background;
+        }
+        .myDay{
+            width: 50%;
+            background-color: $day-theme-background;
+        }
+
+    }
+}
+
+
+.myWeek{
+    .weekPeriod{
+        height: 50px;
+        width: 100%;
+        background-color: $nav-background-color;
+        color: rgb(216, 215, 215);
+        font-weight: 600;
+        box-shadow: 1px 1px  rgb(34, 33, 33);
+        text-align: center;
+        padding: 10px;
+        font-size: 150%;
+    }
+
+    .weekReview{
+        padding-left: 15px;
+        .title{
+            margin: 10px;
+            text-align: center;
+            font-size: 150%;
+        }
+        .info{
+            padding-left: 5px;
+            margin-top: 20px;
+            width: 100%;
+            height:80px;
+            
+            display: flex;
+            overflow: hidden;
+            .weekWeight{  
+                border-radius: 5px;
+                overflow: hidden;
+                width: 13%;
+                height: 97%;
+                background-color: rgb(219, 217, 217);
+                margin-right: 5px;
+                position: relative;
+                box-shadow: 2px 2px rgb(165, 165, 165);
+                .week_finished_weight{
+                    top: 0;
+                    height: 50%;
+                    width: 100%;
+                    background-color: rgb(12, 55, 80);
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .text{
+                        font-size: 130%;
+                        font-weight: 600;
+                        color: rgb(179, 174, 174);
+                    }
+                }
+                .week_total_weight{
+                    
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    .text{
+                        font-size: 140%;
+                        font-weight: 700;
+                    }
+                }
+            }
+        }
+    }
+
+    .wTable{
+        padding: 20px 20px 10px 10px;
+        .weekTable{
+            padding: 10px 10px 5px 10px;  
+            
+        }
+        .weekCompletedTable{
+            margin-top: 20px;
+            padding: 10px 10px 5px 10px; 
+            border-radius: 10px;
+        }
+    }
+    
+    
+}
+
+.myDay{
+   background-color: $day-theme-background;
+   width: 100%;
+   position: relative;
+   
+    .weekDay{
+       
+        
+        height: 50px;
+        width: 100%;
+        background-color: $nav-background-color;
+        color: rgb(226, 226, 226);
+        box-shadow: 0 0 2px rgb(59, 59, 59);
+        text-align: center;
+        padding: 10px;
+        font-size: 150%;
+        font-weight: 600;
+    }
+    
+    .blockquote-wrapper{
+        position: relative;
+        width: 100%;
+        
+    }
+
+    .dayReview{
+
+    }
+
+    .dayTasks{
+        padding: 10px 20px 10px 20px;
+        width: 100%;
+        .dayTable{
+            margin: 0px 20px 10px 10px;
+        }
+        .dayCompletedTable{
+            margin: 20px 20px 10px 10px;
+        }
+    }
+}
+
+.addTask{
+    display: flex;
+    width: 100%;
+    padding-top: 20px;
+    padding-left: 10px;
+    padding-right: 20px;
+    .inputAddTask{
+        margin-right: 10px;
+    }
+    input{
+        background-color: rgb(233, 227, 227);
+    }
+}
+
+.weekAddTask{
+    padding-right: 10px;
+    .inputAddTask{
+        margin-right: 15px;
+    }
+}
+
+.taskRow{
+    width: 100%;
+    margin-bottom: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    animation-name: disappear;
+    animation-duration: 1s;
+    animation-fill-mode: forwards;
+    animation-play-state: paused;
+    .left{
+        background-color: rgb(235, 231, 231);
+        box-shadow: 0 0 1px 1px  rgba(196, 217, 221, 0.5);
+        display: flex;
+        align-items: center;
+        padding: 8px 10px 8px 10px;
+        border-radius: 5px;
+        color: rgb(43, 42, 42);
+        flex: 1;
+        margin-right: 20px;
+        input{
+            margin-right: 10px;
+        }
+    }
+    .weight{
+        min-width: 50px;
+        border: 1px solid rgb(143, 142, 142);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        padding: 8px 10px 8px 10px;
+        border-radius: 5px;
+        color: rgb(236, 231, 231);
+        background: rgb(163, 147, 57);
+        cursor: pointer;
+    }
+}
+
+
+.finishedTask{
+    width: 100%;
+
+    .left{
+        background: rgb(32, 32, 32) !important;
+        padding: 2px 5px 2px 5px !important;  
+        box-shadow: 0 0 1px grey;
+        color: rgb(167, 165, 165) !important; 
+    }
+    .right{
+        min-width: 50px;
+    }
+  
+}
+
+.taskRow:nth-child(odd){
+    .left{
+        background: rgb(209, 209, 209);
+    }
+}
+//Day state
+.dayofWeek, .currentDay{
+    margin: 5px;
+    width: 10%;
+    height: 85%; 
+    border-radius: 5px;
+    
+    box-shadow: 0 0 2px grey;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+    .text{
+        font-weight: 500;
+        color: rgb(173, 172, 172);
+        font-size: 80%;
+    }
+    .score{
+        color: rgb(235, 233, 233);
+        font-size: 110%;
+        font-weight: 600;
+    }
+}
+
+.dayofWeek{
+    cursor: pointer;
+}
+//task priority
+.criticalTask{
+    background: rgb(175, 37, 37) !important;
+}
+
+.mediumTask{
+    background: rgb(149, 149, 30) !important;
+} 
+
+.normalTask{
+    background: rgb(35, 146, 35) !important;
+}
+
+
+.goodDay{
+    background-color: rgb(21, 98, 21);
+}
+
+.mediumDay{
+    background-color: rgb(168, 168, 38);
+}
+
+.badDay{
+    background-color: rgb(182, 50, 50);
+}
+
+.currentDay{
+    background-color: rgb(224, 224, 224);
+    position: relative;
+    overflow: hidden;
+    .total_finished_weight{
+        position: absolute;
+        top: 0;
+        height: 50%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        background-color: grey;
+        width: 100%;
+        .text{
+            color: rgb(200, 195, 195);
+            font-weight: 700;
+            font-size: 110%;
+        }
+    }
+    .total_weight{
+        position: absolute;
+        top: 50%;
+        height: 50%;
+        width: 100%;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        .text{
+            color: rgb(53, 52, 52);
+            font-weight: 700;
+            font-size: 120%;
+        }
+    }
+}
+
+
+a{
+    text-decoration: none !important;
+    color: inherit;
+}
+a:hover{
+    color: inherit;
+}
+
+@keyframes disappear{
+    0% {
+        opacity: 1;
+        
+        margin-bottom: 10px;
+        
+    }
+    75% {
+        opacity: 0;
+        
+    }
+    100% {
+        opacity: 0;
+        height: 0px;
+        line-height: 0px;
+        margin-bottom: 0px;
+        
+    }
+}
+
+
+.hideweight{
+    opacity: 0;
+    height: 30px;
+}
+
+
+
+/* center the blockquote in the page */
+.blockquote-wrapper {
+    display: flex;
+    padding: 0 20px ;
+    position: relative;
+    width: 100%;
+   
+    justify-content: center;
+    align-items: center;
+     /* Blockquote main style */
+    .blockquote{
+        position: relative;
+        font-family: 'Barlow Condensed', sans-serif;
+       
+        margin: 5% 3% 30px 3%;
+        align-self: center;
+        h1{
+            font-family: 'Abril Fatface', cursive;
+            position: relative; /* for pseudos */
+            color: #e74848;
+            font-size: 110%;
+            font-weight: normal;
+            line-height: 1;
+            margin: 0;
+            border: 2px solid #fff;
+            border: solid 2px;
+            border-radius:20px;
+            padding: 25px;
+        }
+
+        h1:before{
+            content:"";
+            position: absolute;
+            width: 60px;
+            border: 6px solid $day-theme-background;
+            bottom: -3px;
+            left: 100px;
+            z-index: 2;
+        }
+        h1:after{
+            content:"";
+            position: absolute;
+            border: 2px solid #e74848;
+            border-radius: 0 50px 0 0;
+            width: 35px;
+            height:35px;
+            bottom: -35px;
+            left: 100px;
+            border-bottom: none;
+            border-left: none;
+            z-index: 3; 
+        }
+
+        h4{
+            position: relative;
+            color: #ffffff;
+            font-size: 1rem;
+            font-weight: 400;
+            line-height: 1.2;
+            margin-left: 155px;
+            padding-top: 15px;
+            z-index: 1;   
+            padding-left:12px;
+        }
+    }
+    .qt{
+        color: #ffffff;
+    }
+ }
+
+
+ 
+ /* increase header size after 600px */
+ @media all and (min-width: 600px) {
+     .blockquote h1 {
+         font-size: 3rem;
+         line-height: 1.2;
+    }
+ 
+ }
+ 
+
+  
+
+
+//  Seperate block
+.canvas{
+    position: fixed;
+    top:0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.6);
+}
+
+.hidden{
+    display: none !important;
+}

@@ -1,0 +1,528 @@
+body{
+    min-height: 100vh;
+    background-color: #EEe;
+    display: flex;
+}
+
+
+.left{
+    width: 50%;
+    background-color: rgb(204, 204, 204);
+    padding: 30px 40px 50px 40px;
+    .year_name{
+        
+        text-align: center;
+        font-size: 200%;
+        font-weight: 600;
+        color: rgb(23, 68, 110);
+    }
+    
+    .overview{
+        
+        display: flex;
+        justify-content: space-around;
+        div{
+            display: flex;
+            flex-direction: column;
+            justify-content: center;
+            align-items: center;
+            .title{
+                font-weight: 600;
+                color: #444;
+               
+            }
+            .value{
+                margin-top: 15px;
+                font-size: 140%;
+                color: rgb(54, 54, 54);
+            }
+        }
+        .stock{
+            .value{
+                padding: 0px 15px 0px 15px !important;
+                
+            }
+            .value:focus{
+                outline: none;
+            }
+        }
+        .crypto{
+            
+            .value:focus{
+                outline: none;
+            }
+        }
+
+        
+    }
+
+    .month-reviews{
+        .title{
+            text-align: center;
+            font-weight: 600;
+            font-size: 110%;
+            color: rgb(39, 95, 128);
+        }
+        .months{
+            margin-top: 10px;
+            
+            .header{
+                padding: 5px 20px 5px 20px;
+                background: rgb(238, 237, 237);
+                box-shadow: 0 0 1px  grey;
+                display: flex;
+                align-items: center;
+                .month-name{
+                    width: 50px;
+                    margin-right: 20px;
+                    
+                }
+                .fields{
+                    flex: 1;
+                    
+                    display: flex;
+                    align-items: center;
+                    
+                    div{
+                        font-size: 80%;
+                        font-weight: 600;
+                        color: #444;
+                        width: 25%;
+                        display: flex;
+                        justify-content: center;
+                    }
+                }
+            }
+
+            .month{
+                padding: 5px 20px 5px 20px;
+                display: flex;
+                align-items: center;
+                .name{
+                    width: 50px;
+                    height: 30px;
+                    border: 1px solid grey;
+                    display: flex;
+                    justify-content: center;
+                    align-items: center;
+                    margin-right: 20px;
+                }
+                .month-info{
+                    flex: 1;
+                    display: flex;
+                    align-items: center;
+                    
+                   
+                    div{
+                        width: 25%;
+                        display: flex;
+                        justify-content: center;
+                       
+                    }
+                }
+            }
+        }
+        .months .month:nth-child(odd){
+            background: rgb(216, 215, 215);
+        }
+        .months .month:nth-child(even){
+            background: rgb(197, 196, 196);
+        }
+    }
+}
+
+.right{
+    flex: 1;
+    padding: 0 40px 30px 40px;
+    .title{
+        text-align: center;
+        font-size: 200%;
+        margin: 30px;
+        font-weight: 600;
+        color: #222;
+    }
+    
+    .overview{
+        
+        display: flex;
+        align-items: center;
+        justify-content: space-around;
+        
+        .monthChart{
+            
+            display: flex;
+            align-items: center;
+            justify-content: space-around;
+            width: 100%;
+            .value{
+                color: rgb(233, 233, 233);
+                font-weight: 600;
+            }
+            .earnCircle{
+                cursor: pointer;
+                background-color: rgb(65, 141, 65);
+                border-radius: 50%;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+                
+            }
+            .spendCircle{
+                cursor: pointer;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                background-color: rgb(195, 81, 81);
+                border-radius: 50%;
+                box-shadow: 0 4px 8px 0 rgba(0,0,0,0.5);
+            }
+        }
+    }
+
+    .addTransaction{
+        display: flex;
+        align-items: center;
+        button{
+            margin-left: 30px;
+        }
+    }
+    .month-transactions{
+        margin-top: 20px;
+        margin-bottom: 50px;
+        box-shadow: 0 1px 1px  rgba(0,0,0,0.2);
+        background-color: rgb(224, 224, 224);
+        .head{
+            background-color: rgb(56, 56, 56);
+            height: 40px;
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            box-shadow: 0 2px 2px grey;
+            color: rgb(233, 233, 233);
+        }
+        .transactions{
+            padding: 15px 20px 15px 20px;
+            .transaction{
+                
+                padding: 10px;
+                height: 50px;
+                border-radius: 3px;
+                display: flex;
+                align-items: center;
+                animation-name: disappear;
+                animation-duration: 1s;
+                animation-fill-mode: forwards;
+                animation-play-state: paused;
+                .t-date{
+                    cursor: pointer;
+                    border: 1px solid grey;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    width: 40px;
+                    height: 40px;
+                }
+                .name{
+                    flex: 1;
+                    margin: 0 20px 0 20px;
+                }
+                .amount{
+                    border: 1px solid grey;
+                    display: flex;
+                    align-items: center;
+                    justify-content: center;
+                    min-width: 40px;
+                    height: 40px;
+                    padding: 10px;
+                    border-radius: 3px;
+                }
+                .plus{
+                    background-color: rgb(112, 230, 112);
+                }
+                .minus{
+                    background-color: rgb(221, 92, 92);
+                }
+            }
+        }
+        
+    }
+    .month-transactions .transaction:nth-child(odd){
+        background-color: rgb(245, 239, 239);
+    }
+    .month-transactions .transaction:nth-child(even){
+        background-color: rgb(206, 203, 203);
+    }
+    
+}
+
+
+.transfer-toggle{
+    position: fixed;
+    right: 30px;
+    bottom: 30px;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+    background-color: rgba(230, 192, 23, 0.8);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    font-size: 20px;
+    box-shadow: 0 0 2px 1px grey;
+    cursor: pointer;
+}
+
+.transfer-toggle:hover{
+    width: 45px;
+}
+
+.transfers{
+    padding: 0 20px 20px 20px;
+    .month-transfer{
+        padding: 10px;
+        height: 50px;
+        border-radius: 3px;
+        display: flex;
+        background-color: grey;
+        align-items: center;
+        justify-content: space-between;
+        animation-name: disappear;
+        animation-duration: 1s;
+        animation-fill-mode: forwards;
+        animation-play-state: paused;
+        .info{
+            display: flex;
+            align-items: center;
+            
+            .transfer-date{
+                cursor: pointer;
+                border: 1px solid grey;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                width: 40px;
+                height: 40px;
+            }
+            .name{
+                margin-left: 20px;
+            }
+        }
+
+        .from-to{
+            display: flex;
+            align-items: center;
+            .from{
+                margin-right: 12px;
+                cursor: pointer;
+                border: 1px solid grey;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 80%;
+                padding: 0 5px 0 5px;
+                min-width: 30px;
+                height: 30px;
+                background-color: rgb(63, 61, 61);
+                color:#eee;
+                
+            }
+            .amount{
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .icon{
+                    font-size: 140%;
+                    color: #555;
+                }
+                .value{
+                    font-size: 90%;
+                }
+            }
+            .to{
+                
+                margin-left: 12px;
+                cursor: pointer;
+                border: 1px solid grey;
+                display: flex;
+                align-items: center;
+                justify-content: center;
+                font-size: 80%;
+                padding: 0 5px 0 5px;
+                min-width: 30px;
+                height: 30px;
+                background-color: rgb(20, 70, 110);
+                color:#eee;
+            }
+            
+        }
+    }
+}
+.transfers .month-transfer:nth-child(odd){
+    background-color: rgb(245, 239, 239);
+}
+.transfers .month-transfer:nth-child(even){
+    background-color: rgb(206, 203, 203);
+}
+
+.transfer-add-box{
+    z-index: 1;
+    position: fixed;
+    width: 600px;
+    height: 400px;
+    top: 50%;
+    left: 50%;
+    
+    transform: translate(-50%, -50%);
+    background-color: white;
+    box-shadow: 0 0 2px 1px rgba(41, 41, 41, 0.5);
+    .bar{
+        height: 40px;
+        background-color: rgb(247, 182, 63);
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        padding-left: 70px;
+        .name{
+            margin-left: 20px;
+            font-weight: 600;
+            font-size: 110%;
+        }
+        .quit-btn{
+            cursor: pointer;
+            color: #444555;
+            font-weight: 600;
+            font-size: 170%;
+            margin-right: 10px;
+        }
+        .quit-btn:hover{
+            position: relative;
+            top: -2px;
+            left: 1px;
+            font-size: 190%;
+        }
+    }
+    .body{
+        padding: 0 100px 0 90px;
+        
+        .from-to{
+            display: flex;
+            align-items: center;
+            justify-content:space-between;
+            .from{
+                margin: 20px 20px 20px 0;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .text{
+                    font-weight: 120%;
+                    margin-bottom: 10px;
+                    font-weight: 600;
+                    color: #444;
+                }
+                .btn-group{
+                    min-width: 120px;
+                }
+            }
+            .exchange-icon{
+                margin: 20px;
+            }
+            .to{
+                .text{
+                    font-weight: 120%;
+                    margin-bottom: 10px;
+                    font-weight: 600;
+                    color: #444;
+                }
+                margin: 20px 0px 20px 20px;
+                display: flex;
+                flex-direction: column;
+                justify-content: center;
+                align-items: center;
+                .btn-group{
+                    min-width: 120px;
+                }
+            }
+        }
+        .transfer-addfield{
+            .text{
+                color: #555;
+                font-size: 90%;
+                margin-bottom: 5px;
+                margin-top: 10px;
+                font-weight: 600;
+            }
+            
+        }
+        .transfer-submit-btn{
+            width: 100%;
+            margin-top: 30px;
+        }
+    }
+    
+}
+
+.canvas{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(0,0,0,0.5);
+}
+
+//sup
+.my-4{
+    width: 100%;
+}
+
+.my-5{
+    width: 80%;
+}
+
+.hidden{
+    display: none !important;
+}
+
+.earnBtn{
+    background-color: rgb(32, 199, 32);
+}
+.earnBtn:hover{
+    background-color: rgb(53, 184, 53);
+}
+
+.spendBtn{
+    background-color: rgb(230, 55, 55);
+}
+
+.spendBtn:hover{
+    background-color: rgb(212, 84, 84);
+}
+
+
+@keyframes disappear{
+    0% {
+        opacity: 1;
+        height: 100%;
+        line-height: 100%;
+        padding: 10px;
+        height: 50px;
+        border-radius: 3px;
+    }
+    75% {
+        opacity: 0;
+        height: 100%;
+        line-height: 100%;
+        padding: 10px;
+        height: 50px;
+        border-radius: 3px;
+    }
+    100% {
+        opacity: 0;
+        height: 0px;
+        line-height: 0px;
+        padding: 0px;
+        margin-bottom: 0px;
+        border-radius: 0px;
+    }
+}

@@ -1,0 +1,171 @@
+body {
+  background-color: #bdc6d3;
+  position: relative;
+}
+
+.nav {
+  position: fixed;
+  width: 13%;
+  height: 100vh;
+  background-color: #292828;
+  color: #d4d3d3;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.main {
+  position: absolute;
+  left: 13%;
+  top: 0px;
+  width: 87%;
+  min-height: 100vh;
+}
+
+.watchlists {
+  width: 100%;
+}
+
+.watchlists .title {
+  width: 100%;
+  background-color: #1b1b1b;
+  color: #757575;
+  text-transform: uppercase;
+  font-weight: 600;
+  padding: 8px;
+  font-size: 90%;
+}
+
+.watchlists .lists {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.watchlists .lists a {
+  padding: 5px 5px 5px 20px;
+  border-bottom: 1px solid #4e4e4e;
+}
+
+.watchlists .lists a:hover {
+  background-color: #555;
+  color: white;
+}
+
+.watchlists .lists a:nth-child(odd) {
+  background-color: #2d2d2d;
+}
+
+.watchlist {
+  min-height: 75vh;
+  background-color: white;
+  margin: 5% 10% 5% 10%;
+  border-radius: 10px;
+  -webkit-box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+          box-shadow: 0 8px 16px 0 rgba(0, 0, 0, 0.2);
+}
+
+.watchlist .name {
+  font-size: 200%;
+  text-align: center;
+  padding: 10px;
+}
+
+.watchlist .items .adding-row {
+  background-color: white !important;
+  margin-top: 10px !important;
+  border: 1px solid white !important;
+  -webkit-box-shadow: 0 0 2px grey;
+          box-shadow: 0 0 2px grey;
+}
+
+.watchlist .items .adding-row .stock-name {
+  border: 1px solid grey;
+  border-radius: 3px;
+}
+
+.watchlist .items .stock-data {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  padding: 8px 20px 8px 8px;
+}
+
+.watchlist .items .stock-data .stock-code {
+  font-weight: 700;
+  cursor: pointer;
+}
+
+.watchlist .items .stock-data .stock-name {
+  -webkit-box-flex: 1;
+      -ms-flex: 1;
+          flex: 1;
+  margin-left: 20px;
+  margin-right: 20px;
+  padding: 5px;
+}
+
+.watchlist .items .stock-data .stock-buy {
+  margin-right: 20px;
+  background-color: #5cbe5c;
+}
+
+.watchlist .items .stock-data .stock-sell {
+  background-color: #ca4848;
+}
+
+.watchlist .items .stock-data .stock-code:hover {
+  background-color: #bcbdb3;
+}
+
+.watchlist .items .stock-data:nth-child(odd) {
+  background-color: #e9e9e9;
+}
+
+.watchlist .wlAdd {
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  padding: 20px 20px 10px 10px;
+}
+
+.watchlist .wlAdd button {
+  margin-right: 10px;
+}
+
+a {
+  text-decoration: none !important;
+  color: inherit;
+}
+
+.hidden {
+  display: none !important;
+}
+
+.info-box {
+  width: 50px;
+  border: 1px solid grey;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  border-radius: 3px;
+  padding: 4px;
+}
+/*# sourceMappingURL=home.css.map */

@@ -1,0 +1,31 @@
+body {
+  background-color: #f5f4b1;
+}
+
+.stock_name {
+  text-align: center;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-align: center;
+      -ms-flex-align: center;
+          align-items: center;
+  -webkit-box-pack: center;
+      -ms-flex-pack: center;
+          justify-content: center;
+}
+
+.stock_name .code {
+  border: 1px solid black;
+  color: #14526e;
+  padding: 4px;
+  font-weight: 600;
+  font-size: 160%;
+  margin-right: 10px;
+}
+
+.stock_name .name {
+  font-size: 180%;
+  color: #14526e;
+}
+/*# sourceMappingURL=info.css.map */
